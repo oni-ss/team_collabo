@@ -1,3 +1,9 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load socialaccount %}
+{% providers_media_js %}
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,9 +32,9 @@
     
 
     <!--API-->
-    <table>
+    <table style="margin-left: auto; margin-right: auto; border: tomato dotted 2px;">
         <tr><td colspan="7" style="height: 10px;"></td></tr>
-        <tr><td style="width:20px"></td><td colspan="6"><h1>BEST 3</h1></td></tr>
+        <tr><td style="width:20px"></td><td colspan="6"><h1 style="color:tomato">BEST 3</h1></td></tr>
         <tr>
             <td style="width:20px"></td>
             <td id="map1" style="width:300px;height:400px;"></td><td style="width:50px"></td>   <!-- 지도1: 누들아한타이 -->
@@ -58,6 +64,79 @@
                 '   <h3>누들아한타이</h3>',
                 '   <font size="2" color="gray">서울특별시 성북구 월곡2동 화랑로13길 10<br /></font>',
                 '   <font size="3">맑소쌀, 맵소쌀, 볶음밥/면 모두 추천<br />',
+                '   </font>',
+                '</div>'
+            ].join('');
+
+        var infowindow = new naver.maps.InfoWindow({
+            content: contentString
+        });
+
+        naver.maps.Event.addListener(marker, "click", function(e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                infowindow.open(map, marker);
+            }
+        });
+
+        infowindow.open(map, marker);
+    
+    
+        //지도2: 오매떡
+        var HOME_PATH = window.HOME_PATH || '.';
+
+        var Tteokbokki = new naver.maps.LatLng(37.6051341, 127.0392698),
+            map = new naver.maps.Map('map2', {
+                center: Tteokbokki.destinationPoint(0, 30),
+                zoom: 17
+            }),
+            marker = new naver.maps.Marker({
+                map: map,
+                position: Tteokbokki
+            });
+
+        var contentString = [
+                '<div class="iw_inner" style="margin:7px;">',
+                '   <h3>오매떡</h3>',
+                '   <font size="2" color="gray">서울특별시 성북구 월곡2동 화랑로13길 28<br /></font>',
+                '   <font size="3">학교와 가장 가까운 떡볶이집<br />',
+                '   </font>',
+                '</div>'
+            ].join('');
+
+        var infowindow = new naver.maps.InfoWindow({
+            content: contentString
+        });
+
+        naver.maps.Event.addListener(marker, "click", function(e) {
+            if (infowindow.getMap()) {
+                infowindow.close();
+            } else {
+                infowindow.open(map, marker);
+            }
+        });
+
+        infowindow.open(map, marker);
+
+        //지도3: 칠기마라샹궈마라탕
+        var HOME_PATH = window.HOME_PATH || '.';
+
+        var mara = new naver.maps.LatLng(37.5876113, 127.0348702),
+            map = new naver.maps.Map('map3', {
+                center: mara.destinationPoint(0, 50),
+                zoom: 17
+            }),
+            marker = new naver.maps.Marker({
+                map: map,
+                position: mara
+            });
+
+        var contentString = [
+                '<div class="iw_inner" style="margin:7px;">',
+                '   <h3>칠기마라샹궈마라탕</h3>',
+                '   <font size="2" color="gray">서울특별시 동대문구 제기로5길 38<br /></font>',
+                '   <font size="3">꿔바로우 꿔바로우 꿔바로우<br />',
                 '   </font>',
                 '</div>'
             ].join('');
