@@ -8,10 +8,10 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', blog.views.home, name='home'),
-    # 
-    # 추후 detail, create, delete 경로 추가!
-    #
-    # path('blog/update/<int:blog_id>/', blog.views.update, name="update"),
+    path('blog/<int:blog_id>/', blog.views.detail, name="detail"),
+    path('blog/create/', blog.views.create, name="create"),
+    path('blog/delete/<int:blog_id>/', blog.views.delete, name="delete"),
+    path('blog/update/<int:blog_id>/', blog.views.update, name="update"),
 
     path('accounts/', include('allauth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
