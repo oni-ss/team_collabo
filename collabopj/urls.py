@@ -14,4 +14,5 @@ urlpatterns = [
     path('blog/update/<int:blog_id>/', blog.views.update, name="update"),
 
     path('accounts/', include('allauth.urls')),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
