@@ -21,11 +21,23 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
+    'django.contrib.sites',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
+
+    # allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    # provider 구글 페이스북 카톡 깃헙 등 소셜 로그인을 제공해주는 업체
+    'allauth.socialaccount.providers.google',    #providers.뒤에 원하는 provider 이름을 써주면 됨
+    
+    #썸네일
+    'imagekit',
 ]
 
 MIDDLEWARE = [

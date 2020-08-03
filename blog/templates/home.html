@@ -1,1 +1,31 @@
-<h1>Hello World~~~!</h1>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <script type="text/javascript" src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=ase4pwr7kt"></script>
+</head>
+
+<body>
+    <!--Social Login-->
+        <div class="container" style="background-color: #edffde;">
+    
+        <a href="/accounts/signup">회원가입</a><br>
+    
+        {% if user.is_authenticated %}
+        <a href="/accounts/logout">로그아웃</a><br>
+        {{user.username}} 님이 로그인 중
+    
+        {% else %}
+        <a href="{% provider_login_url 'google' %}">구글 로그인</a><br>
+        로그아웃상태입니다.<br>
+        </div>
+        {% endif %}
+    <br><br>
+    
+    <!------------>
+    <h1>본문본문~!~!~~!!</h1>
+
+
+</body>
