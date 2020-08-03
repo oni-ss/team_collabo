@@ -2,13 +2,19 @@
 {% load socialaccount %}
 {% providers_media_js %}
 {% load static %}
-{%block contents%}
 
 <head>
+    <style>
 
+    </style>
 </head>
 <body>
-
-</body>
-
+{%block contents%}
+    <div align="center">
+        <h2>{{details.title}}</h2>
+        <p>{{details.pub_date}}</p>
+        <img src="{{details.image.url}}">
+        <p>{{details.body}}</p>
+    </div>
 {% endblock %}
+</body>
