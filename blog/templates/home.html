@@ -13,23 +13,6 @@
 </head>
 
 <body>
-    <!--Social Login-->
-        <div class="container" style="background-color: #edffde;">
-    
-        <a href="/accounts/signup">회원가입</a><br>
-    
-        {% if user.is_authenticated %}
-        <a href="/accounts/logout">로그아웃</a><br>
-        {{user.username}} 님이 로그인 중
-    
-        {% else %}
-        <a href="{% provider_login_url 'google' %}">구글 로그인</a><br>
-        로그아웃상태입니다.<br>
-        </div>
-        {% endif %}
-    <br><br>
-    <br><br><br>
-
 <!--BLOG-->
 <div style="border: green solid 3px;">
 <br>
