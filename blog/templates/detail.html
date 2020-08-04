@@ -9,12 +9,29 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
     
     <style>
-
+        #td1 {
+            border-bottom: 3px dashed #b1aeb1;
+            text-align: center;
+            padding-right: 5px;
+            padding-top: 12px;
+        }
+        #album {
+            margin-left: 20px;
+            margin-right: 20px;
+            margin-bottom: 10px;
+        }
+        #d1 {
+            margin-top: 30px;
+            margin-bottom: 10px;
+            width: 730px;
+            border: 3px solid #585858;
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light" style="background-color:gray;">
-        <a class="navbar-brand">맛집 추천</a>
+        <a class="navbar-brand">노래 추천</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -32,7 +49,7 @@
                         <a class="nav-link" href="/accounts/logout">로그아웃</a>
                     </li>
                     <li class="nav-item">
-                        {{user.username}} 님이 로그인 중
+                        <p style="position: absolute; left: 320px; top: 15px">{{user.username}} 님이 로그인 중</p>
                     </li>
                 {% else %}
                     <li class="nav-item active">
@@ -50,11 +67,23 @@
     </nav>
 
     <div align="center">
-        <h2>{{details.title}}</h2>
-        <p>{{details.pub_date}}</p>
-        <img src="{{details.image.url}}">
-        <p>{{details.body}}</p>
-
+        <div id="d1">
+            <table width="700">
+                <tr>
+                    <td id="td1">
+                        <h2>{{details.title}}</h2>
+                        <p class="font" style="float: right; font-size: 12px; color: #818699; margin-right: 10px;">{{details.pub_date}}</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                        <img id="album" src="{{details.image.url}}" height=200 width=250 align="left">
+                        <p style="margin-left: 20px; margin-right: 20px; font-size: 19px;">{{details.body}}</p>
+                    </td>
+                </tr>
+            </table>
+        </div>
         <a href="{% url 'home' %}">돌아가기</a>
     </div>
 </body>
