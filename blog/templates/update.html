@@ -63,6 +63,7 @@
             </div>
         </nav>
 
+<<<<<<< HEAD
 <div class="container"><br>
     <form method="POST" enctype="multipart/form-data">
         {%csrf_token%}
@@ -77,3 +78,17 @@
 {%endblock%}
 
 </body>
+=======
+        <div class="container"><br>
+            <form method="POST" enctype="multipart/form-data">
+                {%csrf_token%}
+                <table>
+                    {{form.as_table}}
+                </table>
+                <br>
+                <input type="submit" value="제출하기">
+            </form>
+        </div>
+
+</body>
+>>>>>>> 0ad8b58ffc0af58fefda115945dc8e6f694d38b3
