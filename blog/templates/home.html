@@ -12,11 +12,25 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+        
+        <style>
+             @font-face { 
+                font-family: 'S-CoreDream-3Light'; 
+                src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') 
+                format('woff'); 
+                font-weight: normal; 
+                font-style: normal; 
+            }
+            body {
+                font-family: 'S-CoreDream-3Light';
+            }
+        </style>
+   
     </head>
 
     <body>
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color:gray">
-            <a class="navbar-brand">맛집 추천</a>
+            <a class="navbar-brand">노래 추천</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -59,7 +73,7 @@
                 <div class="col-md-6">
                     <div class="row no-gutters border rounded ovepiprflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
                         <div class="col p-4 d-flex flex-column position-static">
-                            <strong class="d-inline-block mb-2 text-success">Food</strong>
+                            <strong class="d-inline-block mb-2 text-success">SONG</strong>
                             <h2 class="mb-0">{{ blog.title }}</h2>
                             <h6><a href="{%url 'detail' blog.id%}">Continue reading</a></h6>
                             <br><br>
@@ -70,7 +84,7 @@
                             </div>
                         </div>
                         <div class="col-auto d-none d-lg-block">
-                            <img src="{{blog.image.url}}">
+                            <img src="{{blog.image.url}}" width="400" height="250">
                         </div>
                     </div>
                 </div>
@@ -79,7 +93,8 @@
         </div>
         <br>
 
-
+        <hr>
+        <br>
         <div class="container" style="text-align: center;">
             <!--First    Previous-->
             {%if posts.has_previous%}
